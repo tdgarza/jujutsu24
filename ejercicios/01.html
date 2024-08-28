@@ -1,0 +1,153 @@
+<?php
+$servername = "localhost";
+$username = "tu_usuario";
+$password = "tu_contraseña";
+$dbname = "tu_base_de_datos";
+
+// Crear conexión
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar conexión
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+
+// Obtener datos del formulario
+$nombre = $_POST['nombre'];
+$anime = $_POST['anime'];
+$edad = $_POST['edad'];
+$genero = $_POST['genero'];
+$habilidad = $_POST['habilidad'];
+$estatura = $_POST['estatura'];
+$peso = $_POST['peso'];
+$equipo = $_POST['equipo'];
+$alianza = $_POST['alianza'];
+$estado = $_POST['estado'];
+
+// Insertar datos en la base de datos
+$sql = "INSERT INTO personajes_anime (nombre, anime, edad, genero, habilidad, estatura, peso, equipo, alianza, estado)
+VALUES ('$nombre', '$anime', '$edad', '$genero', '$habilidad', '$estatura', '$peso', '$equipo', '$alianza', '$estado')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Datos guardados exitosamente";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos de Personajes de Anime</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Introducir Datos de Personajes de Anime</h1>
+        <form action="guardar_datos.php" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            
+            <label for="anime">Anime:</label>
+            <input type="text" id="anime" name="anime" required>
+            
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad" required>
+            
+            <label for="genero">Género:</label>
+            <input type="text" id="genero" name="genero" required>
+            
+            <label for="habilidad">Habilidad:</label>
+            <input type="text" id="habilidad" name="habilidad" required>
+            
+            <label for="estatura">Estatura (cm):</label>
+            <input type="number" id="estatura" name="estatura" required>
+            
+            <label for="peso">Peso (kg):</label>
+            <input type="number" id="peso" name="peso" required>
+            
+            <label for="equipo">Equipo:</label>
+            <input type="text" id="equipo" name="equipo" required>
+            
+            <label for="alianza">Alianza:</label>
+            <input type="text" id="alianza" name="alianza" required>
+            
+            <label for="estado">Estado:</label>
+            <input type="text" id="estado" name="estado" required>
+            
+            <div class="buttons">
+                <button type="submit">Guardar</button>
+                <button type="reset">Limpiar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 48%;
+}
+
+button[type="reset"] {
+    background-color: #f44336;
+}
+
+button:hover {
+    opacity: 0.9;
+}
