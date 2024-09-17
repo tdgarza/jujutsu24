@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos del Personaje</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Datos del Personaje de Anime</h1>
+        <table>
+            <tr>
+                <th>Campo</th>
+                <th>Valor</th>
+            </tr>
+            <tr>
+                <td>Nombre</td>
+                <td><?php echo htmlspecialchars($_POST['nombre']); ?></td>
+            </tr>
+            <tr>
+                <td>Anime</td>
+                <td><?php echo htmlspecialchars($_POST['anime']); ?></td>
+            </tr>
+            <tr>
+                <td>Edad</td>
+                <td><?php echo htmlspecialchars($_POST['edad']); ?></td>
+            </tr>
+            <tr>
+                <td>Género</td>
+                <td><?php echo htmlspecialchars($_POST['genero']); ?></td>
+            </tr>
+            <tr>
+                <td>Habilidad</td>
+                <td><?php echo htmlspecialchars($_POST['habilidad']); ?></td>
+            </tr>
+            <tr>
+                <td>Estatura (cm)</td>
+                <td><?php echo htmlspecialchars($_POST['estatura']); ?> cm</td>
+            </tr>
+            <tr>
+                <td>Peso (kg)</td>
+                <td><?php echo htmlspecialchars($_POST['peso']); ?> kg</td>
+            </tr>
+            <tr>
+                <td>Equipo</td>
+                <td><?php echo htmlspecialchars($_POST['equipo']); ?></td>
+            </tr>
+            <tr>
+                <td>Alianza</td>
+                <td><?php echo htmlspecialchars($_POST['alianza']); ?></td>
+            </tr>
+            <tr>
+                <td>Estado</td>
+                <td><?php echo htmlspecialchars($_POST['estado']); ?></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

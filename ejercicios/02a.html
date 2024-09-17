@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos del Personaje</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Datos del Personaje de Anime</h1>
+        <ul>
+            <li><strong>Nombre:</strong> <?php echo htmlspecialchars($_POST['nombre']); ?></li>
+            <li><strong>Anime:</strong> <?php echo htmlspecialchars($_POST['anime']); ?></li>
+            <li><strong>Edad:</strong> <?php echo htmlspecialchars($_POST['edad']); ?></li>
+            <li><strong>Género:</strong> <?php echo htmlspecialchars($_POST['genero']); ?></li>
+            <li><strong>Habilidad:</strong> <?php echo htmlspecialchars($_POST['habilidad']); ?></li>
+            <li><strong>Estatura:</strong> <?php echo htmlspecialchars($_POST['estatura']); ?> cm</li>
+            <li><strong>Peso:</strong> <?php echo htmlspecialchars($_POST['peso']); ?> kg</li>
+            <li><strong>Equipo:</strong> <?php echo htmlspecialchars($_POST['equipo']); ?></li>
+            <li><strong>Alianza:</strong> <?php echo htmlspecialchars($_POST['alianza']); ?></li>
+            <li><strong>Estado:</strong> <?php echo htmlspecialchars($_POST['estado']); ?></li>
+        </ul>
+    </div>
+</body>
+</html>
