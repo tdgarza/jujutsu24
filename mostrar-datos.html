@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar datos de la base de datos</title>
+</head>
+<body>
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: beige;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+        h1{
+            text-align: center;
+            color: brown;
+            margin-bottom: 20px;
+        }
+    </style>
+    <div class="container">
+        <h1>Datos del jugador de la NBA</h1>
+        <ul>
+            <li><strong>Nombre: </strong> <?php echo $nombre;?></li>
+        </ul>
+    </div>
+    <a href="index.php"></a>
+</body>
+</html>
