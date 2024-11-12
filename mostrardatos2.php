@@ -22,7 +22,7 @@
     $sql = "SELECT * FROM jugadores";
     $resultado = $conexion->query($sql);
 
-    if($resultado->num_row >0){
+    if($resultado->num_rows >0){
         echo "<table>";
         echo "<tr><th>Id</th><th>Nombre</th><th>Apodo</th><th>Equipo</th><th>Posicion</th><th>Altura</th><th>Peso</th><th>Numero</th><th>Edad</th><th>Nacionalidad</th><th>Puntos</th></tr>";
         while($row = $resultado->fetch_assoc()){

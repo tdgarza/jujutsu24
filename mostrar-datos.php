@@ -1,18 +1,3 @@
-<?php
-$username = "root";
-$password = "";
-$servername = "localhost";
-$database = "torresgemelas";
-//crear conexion
-$conexion = new mysqli($servername, $username, $password, $database);
-//Verificar la conexion
-if($conexion->connect_error){
-    die("Conexion fallida: " . $conexion->connect_error);
-}
-$sql = "SELECT * FROM jugadores";
-$resultado = $conexion->query($sql);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,10 +48,24 @@ $resultado = $conexion->query($sql);
             color:white;
         }
     </style>
+    <?php
+    $username = "root";
+    $password = "";
+    $servername = "localhost";
+    $database = "torresgemelas";
+    //crear conexion
+    $conexion = new mysqli($servername, $username, $password, $database);
+    //Verificar la conexion
+    if($conexion->connect_error){
+    die("Conexion fallida: " . $conexion->connect_error);
+}
+$sql = "SELECT * FROM jugadores";
+$resultado = $conexion->query($sql);
+?>
     <div class="container">
         <h1>Datos del jugador de la NBA</h1>
        <?php
-            if($resultado->num_rows >0):?>
+            if($resultado->num_rows >0){
             <table>
                 <tr>
                     <th>Nombre</th>
@@ -94,7 +93,7 @@ $resultado = $conexion->query($sql);
                         <td><?php echo $fila['puntos']; ?></td>
                     </tr>
                     <?php endwhile; ?>
-            </table>
+            </table>};
             <?php else: ?>
                 <p>No se encontraron jugadores</p>
                 <?php endif; ?>

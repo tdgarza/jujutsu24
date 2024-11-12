@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.cdnfonts.com/css/paintmarkerdemo" rel="stylesheet">
-    <title>Final TDGM</title>
+    <link rel="stylesheet" href="style1.css">
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Captura-Muestra</title>
 </head>
 <body>
-    <style>
+<style>
         body{
             background-color: #3498db;
             color: #333;
@@ -45,6 +46,7 @@
         }
         table, th, td{
            border: 2px solid white;
+           border-radius; 50%;
         }
         th, td{
             padding: 8px;
@@ -57,14 +59,16 @@
     </style>
     <script>
         $(document).ready(function(){
-            //esta funcion es para cargar y mostrar los datos actualizados
+            //esta funcion carga y muestra los datos actualizados
             function actualizarDatos(){
                 //esta es la pagina de la tabla
-                $.get(mostrardatos2.php, function(data){
+                $.get("mostrardatos2.php", function(data){
+                    // esta parte de #resultados sera util para ponerle codigo en css 
                     $("#resultados").html(data);
                 });
             }
-            //con esto, se llama a la funcion para cargar los datos al cargar la pagina actulizarDatos();
+            //con esto, se llama a la funcion para cargar los datos al cargar la pagina
+            actualizarDatos();
             //manejo del envio del formulario
             $("#formulario").submit(function(event){
                 event.preventDefault();
@@ -99,8 +103,9 @@
             <input type="text" id="puntos" name="puntos" required><br>
             <button><input type="submit" value="Agregar registro"></button>
     </form>
-    <div id="mensaje"></div> <!-- Mensaje de exito o error -->
-    <div id="resultados"></div> <!-- Mostrar datos actualizados -->
-    
+    <!-- Mensage de exito o error -->
+    <div id="mensaje"></div>
+    <!-- Mostrar datos actualizados -->
+    <div id="resultados"></div>
 </body>
 </html>

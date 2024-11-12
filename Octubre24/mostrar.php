@@ -13,14 +13,14 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "lunes";
+    $dbname = "torresgemelas";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
     //verifica coneccion
     if($conn-> connect_error){
         die("La conexion a la base de datos fallo: " .$conn->connect_error);
     }
-    $sql = "SELECT * FROM martes";
+    $sql = "SELECT * FROM jugadores";
     $result = $conn->query($sql);
     if($result->num_rows >0){
         echo "<table>";
