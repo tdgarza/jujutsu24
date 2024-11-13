@@ -60,7 +60,7 @@
                 p.Descripcion AS DescripcionDelSuperheroe, 
                 GROUP_CONCAT(c.Titulo) AS Comics,
                 GROUP_CONCAT(s.Nombre) AS Superpoderes
-            FROM Personaje p
+            FROM Personajes p
             LEFT JOIN PersonajeComic pc ON p.PersonajeID = pc.PersonajeID
             LEFT JOIN Comics c ON pc.ComicID = c.ComicID
             LEFT JOIN PersonajeSuperpoder ps OF p.PersonajeID = ps.PersonajeID
