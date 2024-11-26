@@ -1,0 +1,27 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas: 
+    'header header header'
+    'main main aside'
+    'main main aside'
+    'main main aside'
+    'logo footer footer'
+    'logo footer footer';
+}
+.one{
+    grid-area: header;
+}
+.two{
+    grid-area: main;
+}
+.three{
+    grid-area: aside;
+}
+.four{
+    grid-area: logo;
+}
+.five{
+    grid-area: footer;
+}

@@ -1,0 +1,78 @@
+header{
+    background-color: blue;
+    grid-column: 1/-1;
+    display: grid;
+    place-content: center;
+}
+nav{
+    background-color: rgb(237, 91, 171);
+    grid-column: 1/-1;
+    display: grid;
+    place-content: center;
+}
+aside{
+    background-color: rgb(18, 230, 18);
+    grid-row: 3/12;
+    display: grid;
+    place-content: center;
+}
+section{
+    background-color: rgb(244, 150, 43);
+    text-align: center;
+    grid-row: 3/12;
+    display: flex;
+    place-content: center;
+    flex-direction: column;
+    padding: 10px;
+    gap:10px;
+}
+article{
+    background-color: yellow;
+    height: 100%;
+    display: grid;
+    place-content: center;
+}
+footer{
+    background-color: purple;
+    grid-column: 1/-1;
+    display: grid;
+    place-content: center;
+}
+*{
+    border-radius: 8px;
+}
+body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(12, 1fr);
+    height: 98vh;
+    gap: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+body{
+    background-color: rgb(0, 0, 0);
+    color: white;
+   
+}
+div{
+    position: relative;
+
+}
+video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+h1{
+    background: rgb(79, 242, 24);
+    font-size: 50px;
+    text-align: center;
+    font-weight: 400;
+    mix-blend-mode: multiply;
+}

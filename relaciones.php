@@ -93,6 +93,17 @@ body::before {
     background: url('gambit.jpg') center/cover no-repeat;
     opacity: 0.3;
 }
+body::before{
+            content:"";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('wolverine.jpg') center/cover no-repeat;
+            opacity: 0.2;
+        }
 
     </style>
 </head>
@@ -107,9 +118,9 @@ body::before {
             <th>Alias</th>
             <th>Fecha de Creación</th>
             <th>Descripción</th>
-            <th>ComicID</th>
+            
             <th>Titulo del Comic</th>
-            <th>Superpoder ID</th>
+            
             <th>Nombre del superpoder</th>
 
         </tr>
@@ -154,9 +165,9 @@ body::before {
             echo "<td>" . $row['alias'] . "</td>";
             echo "<td>" . $row['fechadecreacion'] . "</td>";
             echo "<td>" . $row['descripcion'] . "</td>";
-            echo "<td>" . $row['comicID'] . "</td>";
+          
             echo "<td>" . $row['titulo'] . "</td>";
-            echo "<td>" . $row['superpoderID'] . "</td>";
+            
             echo "<td>" . $row['nombre'] . "</td>";
             echo "</tr>";
         }

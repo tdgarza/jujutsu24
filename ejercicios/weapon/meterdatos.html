@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<link rel="stylesheet" type="text/css" href="xmen.css">
+<body>
+<a aria-label='Thanks' class='h-button centered' data-text='METER' style="left: 280px; top: 400px;" href='./meterdatos.html'>
+  <span>M</span>
+  <span>U</span>
+  <span>T</span>
+  <span>A</span>
+  <span>N</span>
+  <span>T</span>
+</a>
+	<a aria-label='Thanks' class='h-button centered' style="left: 100px;  top: 400px;" data-text='DESPLEGAR' href='./tabladepersonajes.php'>
+  <span>M</span>
+  <span>U</span>
+  <span>T</span>
+  <span>A</span>
+  <span>N</span>
+  <span>T</span>
+</a>	
+	<a aria-label='Thanks' class='h-button centered' style="left: 460px;  top: 400px;" data-text='INICIO' href='./personajes.php'>  <span>M</span>
+  <span>U</span>
+  <span>T</span>
+  <span>A</span>
+  <span>N</span>
+  <span>T</span>
+</a>
+<img class="logo" src="./xmenlogo.png" >
+<div class="datos">
+	<form method="POST" action="./datos.php" enctype="multipart/form-data">
+			
+			<label for='nombre'>Nombre clave:</label>
+			<input type="text" name="nombre" placeholder="Wolverine"></input><br>
+
+			<label for='nombrereal'>Nombre real:</label>
+			<input type="text" name="nombrereal" placeholder="Logan"></input><br>
+
+			<label for='poderes'>Poderes:</label>
+			<input type="text" name="poderes" placeholder="Regeneracion"></input><br>
+
+			<label for='primeraaparicion'>Primera aparicion:</label>
+			<input type="text" name="primeraaparicion" placeholder="Giant Size Xmen #1"></input><br>
+			
+			<label for='bio'>Bio:</label>
+			<input type="text" name="bio" placeholder="Biografia"></input><br>
+			
+			<label for='imagen'>Imagen:</label>
+			<input type="file" name="imagen" value=""></input><br>
+
+			<input type="submit" name="submit" value="Introducir">
+
+		</form>
+	</div>
+
+	<?php
+    
+  $host = "localhost";
+  $username = "root";
+  $password = "";
+  $basededatos ="xmen";
+   
+
+$conexion = mysqli_connect($host, $username, $password, $basededatos);
+ 
+if($conexion->connect_errno > 0){
+    die('Error: No es posible establecer la conexión: [' . $link->connect_error . ']');
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $stmt = $conn->prepare("SELECT id, nombre, nombrereal, poderes, primeraaparicion, bio, imagen FROM equipoazul");
+  $stmt->execute();
+}
+
+$id=$conexion -> real_escape_string($_POST['id']);
+$extraerdato = $conexion->query("SELECT * FROM equipoazul where id=$id");
+$fetch = mysqli_fetch_array($extraerdato);
+$id = $fetch['id'];
+$nombre = $fetch['nombre'];
+$nombrereal = $fetch['nombrereal'];
+$poderes = $fetch['poderes'];
+$primeraaparicion = $fetch['primeraaparicion'];
+$bio = $fetch['bio'];
+$imagen = $fetch['imagen'];
+
+?>
+
+<div class="personaje">
+  <div class="nombre">Nombre Clave: <?php echo $nombre = $fetch['nombre']; ?><br></div> <br>
+  <div class="nombre" >Nombre Real: <?php echo $nombrereal = $fetch['nombrereal']; ?><br></div><br>
+  <div class="nombre">Poderes: <?php echo $poderes = $fetch['poderes']; ?><br></div><br>
+  <div class="nombre">Primera Aparicion: <?php echo $primeraaparicion = $fetch['primeraaparicion']; ?><br></div><br>
+  <div class="nombre">Bio: <?php echo $bio = $fetch['bio']; ?></div><br>
+
+  <div class="foto" style="left: 300px; top: -205px;" >
+    <img class="crop" src="data:image/jpeg;base64,<?php echo  base64_encode($fetch['imagen']); ?>">
+  </div>
+
+</div>
+</body>
+</html>

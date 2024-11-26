@@ -1,0 +1,43 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+  }
+  
+  /* Add rounded corners to the top left and the top right corner of the image */
+  img {
+    border-radius: 5px 5px 0 0;
+  }
+
+  main {
+    max-width: 800px;
+    padding: 1rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-rows: 200px 200px 200px;
+    grid-gap: 1rem;
+  }
+   
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+   
+  .item-a {
+    grid-row: 1 / 3;
+  }
+   
+  .item-b {
+    grid-column: 3 / 5;
+  }
+   
+  .item-c {
+    grid-row: 2 / 4;
+  }
+   
+  .item-d {
+    grid-column: 3 / 5;
+  }
