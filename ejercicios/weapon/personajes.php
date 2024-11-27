@@ -54,12 +54,12 @@ if($conexion->connect_errno > 0){
     die('Error: No es posible establecer la conexión: [' . $link->connect_error . ']');
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $stmt = $conn->prepare("SELECT id, nombre, nombrereal, poderes, primeraaparicion, bio, imagen FROM equipoazul");
+  $stmt = $conn->prepare("SELECT id, nombre, nombrereal, poderes, primeraaparicion, bio, imagen FROM mutantes");
   $stmt->execute();
 }
 
 $id=$conexion -> real_escape_string($_POST['id']);
-$extraerdato = $conexion->query("SELECT * FROM equipoazul where id=$id");
+$extraerdato = $conexion->query("SELECT * FROM mutantes where id=$id");
 $fetch = mysqli_fetch_array($extraerdato);
 $id = $fetch['id'];
 $nombre = $fetch['nombre'];

@@ -11,29 +11,7 @@
 			
 </div>
 			</div>
-<a aria-label='Thanks' class='h-button centered' data-text='METER' style="left: 280px; top: 400px;" href='./xmendatos.html'>
-  <span>M</span>
-  <span>U</span>
-  <span>T</span>
-  <span>A</span>
-  <span>N</span>
-  <span>T</span>
-</a>
-	<a aria-label='Thanks' class='h-button centered' style="left: 100px;  top: 400px;" data-text='DESPLEGAR' href='./weaponxx.php'>
-  <span>M</span>
-  <span>U</span>
-  <span>T</span>
-  <span>A</span>
-  <span>N</span>
-  <span>T</span>
-</a>	
-	<a aria-label='Thanks' class='h-button centered' style="left: 460px;  top: 400px;" data-text='BIOGRAFIA' href='./abril1.php'>  <span>M</span>
-  <span>U</span>
-  <span>T</span>
-  <span>A</span>
-  <span>N</span>
-  <span>T</span>
-</a>
+
 <?php
 	if(isset($_POST["submit"]))
 	{
@@ -65,7 +43,7 @@
 			}
 
 	
-	$sql = "INSERT INTO equipoazul (id, nombre, nombrereal, poderes, 
+	$sql = "INSERT INTO mutantes (id, nombre, nombrereal, poderes, 
 	primeraaparicion, bio, imagen) VALUES ('0','$nombre', '$nombrereal', 
 	'$poderes', '$primeraaparicion', '$bio', '$imgContenido')";
 	

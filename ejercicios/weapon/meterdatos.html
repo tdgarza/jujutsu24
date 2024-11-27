@@ -3,32 +3,157 @@
 <head>
 	<title></title>
 </head>
-<link rel="stylesheet" type="text/css" href="xmen.css">
+<link rel="stylesheet" type="text/css" href="xmen1.css">
 <body>
-<a aria-label='Thanks' class='h-button centered' data-text='METER' style="left: 280px; top: 400px;" href='./meterdatos.html'>
-  <span>M</span>
-  <span>U</span>
-  <span>T</span>
-  <span>A</span>
-  <span>N</span>
-  <span>T</span>
-</a>
-	<a aria-label='Thanks' class='h-button centered' style="left: 100px;  top: 400px;" data-text='DESPLEGAR' href='./tabladepersonajes.php'>
-  <span>M</span>
-  <span>U</span>
-  <span>T</span>
-  <span>A</span>
-  <span>N</span>
-  <span>T</span>
-</a>	
-	<a aria-label='Thanks' class='h-button centered' style="left: 460px;  top: 400px;" data-text='INICIO' href='./personajes.php'>  <span>M</span>
-  <span>U</span>
-  <span>T</span>
-  <span>A</span>
-  <span>N</span>
-  <span>T</span>
-</a>
-<img class="logo" src="./xmenlogo.png" >
+  <style>
+    /* General */
+ body {
+   background-color: blue;
+   margin: 0;
+   padding: 0;
+   font-family: Arial, sans-serif;
+ }
+ 
+ .titulo {
+   font-size: 16px;
+   color: #d853bb;
+   text-align: center;
+ }
+ 
+ /* Barra de navegación */
+ .navbar {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       background-color: #333;
+       padding: 10px 0;
+       display: flex;
+       justify-content: center;
+       gap: 20px;
+       z-index: 1000;
+     }
+ 
+ .navbar a {
+       color: yellow;
+       text-decoration: none;
+       font-weight: bold;
+       font-size: 16px;
+       background-color: red;
+       padding: 10px 20px;
+       border-radius: 5px;
+       transition: background-color 0.3s;
+     }
+ 
+     .navbar a:hover {
+       background-color: #ff6347; /* Tomate */
+     }
+ 
+  /* Logo centrado */
+  .logo-container {
+       margin-top: 100px; /* Espacio por la barra fija */
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-grow: 1;
+     }
+ 
+     .logo {
+       width: 300px;
+       max-width: 100%;
+       height: auto;
+       display: block;
+       mix-blend-mode: multiply;
+   
+     }
+ 
+ /* Contenedor de datos */
+ .datos {
+   width: 90%;
+   max-width: 700px;
+   margin: 50px auto;
+   padding: 20px;
+   background: white;
+   border: 1px solid #ddd;
+   border-radius: 10px;
+   position: relative;
+ }
+ 
+ /* Tabla */
+ table {
+   width: 100%;
+   border-collapse: collapse;
+   margin-top: 20px;
+ }
+ 
+ th, td {
+   border: 1px solid red;
+   text-align: left;
+   padding: 8px;
+ }
+ 
+ th {
+   background-color: yellow;
+   color: black;
+ }
+ 
+ /* Estilo para botones */
+ .button {
+   background-color: #4CAF50;
+   border: none;
+   color: white;
+   padding: 15px 32px;
+   text-align: center;
+   font-size: 16px;
+   cursor: pointer;
+   border-radius: 5px;
+   transition: background-color 0.3s;
+ }
+ 
+ .button:hover {
+   background-color: #45a049;
+ }
+ 
+ .personaje {
+   background-color: red;
+   border-radius: 15px;
+   padding: 20px;
+   color: black;
+ }
+ 
+ .nombre {
+   background-color: yellow;
+   text-align: center;
+   font-size: 20px;
+   margin: 10px auto;
+   padding: 10px;
+ }
+ 
+ .foto {
+   text-align: center;
+ }
+ 
+ .foto img {
+   max-width: 100%;
+   height: auto;
+   border-radius: 10px;
+ }
+ 
+     </style>
+
+     <!-- Barra de navegación fija -->
+ <div class="navbar">
+  <a href="./meterdatos.html">METER</a>
+  <a href="./tabladepersonajes.php">DESPLEGAR</a>
+  <a href="./personajes1.php">INICIO</a>
+</div>
+
+<!-- Logo centrado -->
+
+ <!-- Logo centrado -->
+ <div class="logo-container">
+  <img class="logo" src="./xmenlogo.png" alt="Logo X-Men">
+</div>
 <div class="datos">
 	<form method="POST" action="./datos.php" enctype="multipart/form-data">
 			
@@ -55,48 +180,6 @@
 		</form>
 	</div>
 
-	<?php
-    
-  $host = "localhost";
-  $username = "root";
-  $password = "";
-  $basededatos ="xmen";
-   
 
-$conexion = mysqli_connect($host, $username, $password, $basededatos);
- 
-if($conexion->connect_errno > 0){
-    die('Error: No es posible establecer la conexión: [' . $link->connect_error . ']');
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $stmt = $conn->prepare("SELECT id, nombre, nombrereal, poderes, primeraaparicion, bio, imagen FROM equipoazul");
-  $stmt->execute();
-}
-
-$id=$conexion -> real_escape_string($_POST['id']);
-$extraerdato = $conexion->query("SELECT * FROM equipoazul where id=$id");
-$fetch = mysqli_fetch_array($extraerdato);
-$id = $fetch['id'];
-$nombre = $fetch['nombre'];
-$nombrereal = $fetch['nombrereal'];
-$poderes = $fetch['poderes'];
-$primeraaparicion = $fetch['primeraaparicion'];
-$bio = $fetch['bio'];
-$imagen = $fetch['imagen'];
-
-?>
-
-<div class="personaje">
-  <div class="nombre">Nombre Clave: <?php echo $nombre = $fetch['nombre']; ?><br></div> <br>
-  <div class="nombre" >Nombre Real: <?php echo $nombrereal = $fetch['nombrereal']; ?><br></div><br>
-  <div class="nombre">Poderes: <?php echo $poderes = $fetch['poderes']; ?><br></div><br>
-  <div class="nombre">Primera Aparicion: <?php echo $primeraaparicion = $fetch['primeraaparicion']; ?><br></div><br>
-  <div class="nombre">Bio: <?php echo $bio = $fetch['bio']; ?></div><br>
-
-  <div class="foto" style="left: 300px; top: -205px;" >
-    <img class="crop" src="data:image/jpeg;base64,<?php echo  base64_encode($fetch['imagen']); ?>">
-  </div>
-
-</div>
 </body>
 </html>
