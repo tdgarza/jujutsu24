@@ -7,6 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <form method="POST" action="./datos.php" enctype="multipart/form-data">
+			
+        <label for='nombre'>Nombre clave:</label>
+        <input type="text" name="nombre" placeholder="Wolverine"></input><br>
+        <label for='nombrereal'>Nombre real:</label>
+        <input type="text" name="nombrereal" placeholder="Logan"></input><br>
+        <label for='poderes'>Poderes:</label>
+        <input type="text" name="poderes" placeholder="Regeneracion"></input><br>
+        <label for='primeraaparicion'>Primera aparicion:</label>
+        <input type="text" name="primeraaparicion" placeholder="Giant Size Xmen #1"></input><br>
+        <label for='bio'>Bio:</label>
+        <input type="text" name="bio" placeholder="Biografia"></input><br>
+        <label for='imagen'>Imagen:</label>
+        <input type="file" name="imagen" value=""></input><br>
+
+        <input type="submit" name="submit" value="Introducir">
+
+    </form>
 </body>
 </html>
