@@ -16,10 +16,8 @@
 
         <label for="altura">Altura (en metros):</label>
         <input type="number" step="0.01" id="altura" name="altura" required><br><br>
-
         <label for="peso">Peso (en kilogramos):</label>
         <input type="number" step="0.01" id="peso" name="peso" required><br><br>
-
         <label for="descripcion">Descripción:</label>
         <textarea id="descripcion" name="descripcion" rows="4" required></textarea><br><br>
 
@@ -32,10 +30,7 @@
             <option value="Normal">Normal</option>
             <!-- Agrega más tipos de Pokémon según tus necesidades -->
         </select><br><br>
-
         <input type="submit" value="Agregar Pokémon">
     </form>
-
-
 </body>
 </html>

@@ -1,3 +1,4 @@
+puedes corregirme esto, este es el codigo:
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +44,7 @@
      $servername = "localhost";
      $username = "root";
      $password = "";
-     $dbname = "marvel";
+     $dbname = "marvel616";
  
      // Crear conexión
      $conn = new mysqli($servername, $username, $password, $dbname);
@@ -53,31 +54,31 @@
          die("La conexión a la base de datos falló: " . $conn->connect_error);
      }
      $sql= "SELECT 
-                p.PersonajeID AS PersonajeID, 
-                p.Nombre AS NombreDelSuperheroe, 
-                p.Alias AS AliasDelSuperheroe, 
-                p.FechaDeCreacion AS FechaDeCreacionDelSuperheroe, 
-                p.Descripcion AS DescripcionDelSuperheroe, 
-                GROUP_CONCAT(c.Titulo) AS Comics,
-                GROUP_CONCAT(s.Nombre) AS Superpoderes
+                p.personajeID AS personajeID, 
+                p.nombre AS nombredelsuperheroe, 
+                p.alias AS alias, 
+                p.fechadecreacion AS fechadecreacion, 
+                p.descripción AS descripcion, 
+                GROUP_CONCAT(c.titulo) AS Comics,
+                GROUP_CONCAT(s.nombre) AS Superpoderes
             FROM Personajes p
-            LEFT JOIN PersonajeComic pc ON p.PersonajeID = pc.PersonajeID
-            LEFT JOIN Comics c ON pc.ComicID = c.ComicID
-            LEFT JOIN PersonajeSuperpoder ps OF p.PersonajeID = ps.PersonajeID
-            LEFT JOIN Superpoderes s ON ps.SuperpoderID = s.SuperpoderID
-            GROUP BY p.PersonajeID";
+            LEFT JOIN PersonajeComic pc ON p.personajeID = pc.personajeID
+            LEFT JOIN Comics c ON pc.comicID = c.comicID
+            LEFT JOIN PersonajeSuperpoder ps OF p.personajeID = ps.personajeID
+            LEFT JOIN Superpoderes s ON ps.superpoderID = s.superpoderID
+            GROUP BY p.personajeID";
     //Realizar la consulta
     $result = $conn->query($sql);
     if ($result->num_rows >0) {
         while ($row = $result->fetch_assoc()){
             echo "<tr>";
-            echo "<td>" . $row['PersonajeID'] . "</td>";
-            echo "<td>" . $row['NombreDelSuperheroe'] . "</td>";
-            echo "<td>" . $row['AliasDelSuperheroe'] . "</td>";
-            echo "<td>" . $row['FechaCreacionDelSuperheroe'] . "</td>";
-            echo "<td>" . $row['DescripcionDelSuperheroe'] . "</td>";
-            echo "<td>" . $row['Comics'] . "</td>";
-            echo "<td>" . $row['Superpoderes'] . "</td>";
+            echo "<td>" . $row['personajeID'] . "</td>";
+            echo "<td>" . $row['nombre'] . "</td>";
+            echo "<td>" . $row['alias'] . "</td>";
+            echo "<td>" . $row['fechadecreacion'] . "</td>";
+            echo "<td>" . $row['descripcion'] . "</td>";
+            echo "<td>" . $row['comics'] . "</td>";
+            echo "<td>" . $row['superpoderes'] . "</td>";
             echo "</tr>";
         }
     }else{
